@@ -1,1 +1,0 @@
-/Users/lydiastepanek/.zprezto/runcoms/zshrc
