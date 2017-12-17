@@ -27,10 +27,10 @@ Plugin 'vim-syntastic/syntastic'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 " navigation
-Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " languages
 Plugin 'AndrewRadev/vim-eco'
@@ -58,6 +58,8 @@ Plugin 'tpope/vim-fugitive'
 if filereadable(expand("~/.custom.vim-plugins"))
   source ~/.custom.vim-plugins
 endif
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -118,7 +120,7 @@ set formatoptions-=t formatoptions+=croql
 set viminfo=%100,'100,/100,h,\"500,:1000,n~/.vim/viminfo
 
 " ctags: recurse up to home to find tags.
-set tags+=tags;$HOME
+set tags=tags;
 
 " Undo
 set undolevels=10000
@@ -264,18 +266,21 @@ let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
 set laststatus=2
 
-let g:ctrlp_map = '<Leader>.'
-let g:ctrlp_custom_ignore = '/\.\|\.o\|\.so'
-let g:ctrlp_switch_buffer = 0
+"""""""""""""""""""""""""
+" CtrlP
+"""""""""""""""""""""""""
+
 let g:ctrlp_regexp = 1
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
-map <Leader>, :CtrlPMRU<CR>
+let g:ctrlp_working_path_mode = 'ra'
+map <Leader>, :CtrlP<CR>
 
+"""""""""""""""""""""""""
 
 noremap \= :Tabularize /=<CR>
 noremap \: :Tabularize /^[^:]*:\zs/l0l1<CR>
 noremap \> :Tabularize /=><CR>
-noremap \, :Tabularize /,\zs/l0l1<CR>
+noremap \, :Tabularize /, \zs/l0l1<CR>
 noremap \{ :Tabularize /{<CR>
 noremap \\| :Tabularize /\|<CR>
 noremap \& :Tabularize /\(&\\|\\\\\)<CR>
@@ -317,10 +322,9 @@ runtime macros/matchit.vim
 
 nnoremap <leader>er :call ToggleErrorPanel()<CR>
 
-
-
-
-
+"""""""""""""""""""""""""
+" Syntastic/ESLint
+"""""""""""""""""""""""""
 
 let g:syntastic_javascript_checkers = []
 
