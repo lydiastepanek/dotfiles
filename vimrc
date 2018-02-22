@@ -15,9 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Vim Plugins
 """""""""""""""""""""""""
 
-" appearance
-Plugin 'nviennot/molokai'
-
 " editing
 Plugin 'godlygeek/tabular'
 Plugin 'kana/vim-textobj-user'
@@ -26,12 +23,14 @@ Plugin 'sjl/gundo.vim'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/matchit'
+Plugin 'vim-syntastic/syntastic'
+" Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 " navigation
-Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " languages
 Plugin 'AndrewRadev/vim-eco'
@@ -48,20 +47,19 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
 Plugin 'burnettk/vim-angular'
 Plugin 'othree/html5.vim'
-Plugin 'quentindecock/vim-cucumber-align-pipes'
 
 " misc
 Plugin 'vim-airline/vim-airline'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tomtom/quickfixsigns_vim'
 
 " Plugins you want just for yourself go here
 if filereadable(expand("~/.custom.vim-plugins"))
   source ~/.custom.vim-plugins
 endif
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -81,7 +79,6 @@ if $TERM =~ '256color'
 elseif $TERM =~ '^xterm$'
   set t_Co=256
 endif
-colorscheme molokai
 
 " Misc
 set hidden                      " Don't abandon buffers moved to the background
@@ -123,7 +120,7 @@ set formatoptions-=t formatoptions+=croql
 set viminfo=%100,'100,/100,h,\"500,:1000,n~/.vim/viminfo
 
 " ctags: recurse up to home to find tags.
-set tags+=tags;$HOME
+set tags=tags;
 
 " Undo
 set undolevels=10000
@@ -151,9 +148,25 @@ autocmd BufReadPost *
     \     exe "normal g'\"zz" |
     \ endif |
 
-
 " After 4s of inactivity, check for external file modifications on next keyrpress
 au CursorHold * checktime
+
+"""""""""""""""""""""""""
+" Syntastic
+"""""""""""""""""""""""""
+let g:syntastic_check_on_open=0 " check syntax on open
+let g:syntastic_check_on_wq=1
+let g:syntastic_auto_loc_list=0 " note erros with a separate buffer
+let g:syntastic_always_populate_loc_list=1 " update errors list
+let g:syntastic_enable_highlighting=0
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"] " for angular
+au BufRead,BufNewFile ~/dev/writability/* let g:syntastic_python_checker_args='--max-complexity 10'
+" let g:syntastic_javascript_checkers = ['eslint']
+
+" JAVASCRIPT:
+" http://oli.me.uk/2014/11/21/essential-vim-bundles-for-javascript-and-clojure/
+au FileType javascript setlocal shiftwidth=2 softtabstop=2
+let g:jsx_ext_required = 0 " jsx syntax / indent on js files too.
 
 """""""""""""""""""""""""
 " Keybindings
@@ -249,28 +262,25 @@ nnoremap <C-y> :YRShow<cr>
 let g:yankring_history_dir = '$HOME/.vim'
 let g:yankring_manual_clipboard_check = 0
 
-let g:syntastic_enable_signs = 1
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['c', 'scss', 'html', 'scala'] }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['jshint']
-
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
 set laststatus=2
 
-let g:ctrlp_map = '<Leader>.'
-let g:ctrlp_custom_ignore = '/\.\|\.o\|\.so'
-let g:ctrlp_switch_buffer = 0
+"""""""""""""""""""""""""
+" CtrlP
+"""""""""""""""""""""""""
+
 let g:ctrlp_regexp = 1
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
-map <Leader>, :CtrlPMRU<CR>
+let g:ctrlp_working_path_mode = 'ra'
+map <Leader>, :CtrlP<CR>
+
+"""""""""""""""""""""""""
 
 noremap \= :Tabularize /=<CR>
 noremap \: :Tabularize /^[^:]*:\zs/l0l1<CR>
 noremap \> :Tabularize /=><CR>
-noremap \, :Tabularize /,\zs/l0l1<CR>
+noremap \, :Tabularize /, \zs/l0l1<CR>
 noremap \{ :Tabularize /{<CR>
 noremap \\| :Tabularize /\|<CR>
 noremap \& :Tabularize /\(&\\|\\\\\)<CR>
@@ -310,14 +320,30 @@ au BufRead,BufNewFile *.rabl setf ruby
 "Matchit macro for ruby block text objects
 runtime macros/matchit.vim
 
-" toggle syntastic error panel
-function! ToggleErrorPanel()
-  let old_window_count = winnr('$')
-  lclose
-  if old_window_count == winnr('$')
-    " Nothing was closed, open syntastic error location panel
-    Errors
+nnoremap <leader>er :call ToggleErrorPanel()<CR>
+
+"""""""""""""""""""""""""
+" Syntastic/ESLint
+"""""""""""""""""""""""""
+
+let g:syntastic_javascript_checkers = []
+
+function CheckJavaScriptLinter(filepath, linter)
+  if exists('b:syntastic_checkers')
+    return
+  endif
+  if filereadable(a:filepath)
+    let b:syntastic_checkers = [a:linter]
+    let {'b:syntastic_' . a:linter . '_exec'} = a:filepath
   endif
 endfunction
 
-nnoremap <leader>er :call ToggleErrorPanel()<CR>
+function SetupJavaScriptLinter()
+  let l:current_folder = expand('%:p:h')
+  let l:bin_folder = fnamemodify(syntastic#util#findFileInParent('package.json', l:current_folder), ':h')
+  let l:bin_folder = l:bin_folder . '/node_modules/.bin/'
+  call CheckJavaScriptLinter(l:bin_folder . 'standard', 'standard')
+  call CheckJavaScriptLinter(l:bin_folder . 'eslint', 'eslint')
+endfunction
+
+autocmd FileType javascript call SetupJavaScriptLinter()
