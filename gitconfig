@@ -16,7 +16,7 @@ dc = diff --cached
 df = diff
 st = status
 ci = commit
-lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+lg = log --pretty=oneline
 lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 ls = ls-files
 
