@@ -23,4 +23,4 @@ To get shell to recognize new tmux settings:
   * iTerm Preferences > Profiles > Default > Keys > Right option key acts as + Esc
 
 To install prezto:
-* Follow directions in https://github.com/sorin-ionescu/prezto#installation
+* Follow directions in https://github.com/sorin-ionescu/prezto#installation. (Skip Step 3 as this line is already added to zshrc.)
