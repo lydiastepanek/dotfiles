@@ -1,11 +1,14 @@
 [hub]
 protocol = https
 
+[core]
+excludesfile = /Users/lydia.stepanek/.gitignore
+
 [user]
-  email = lydia.stepanek@gmail.com
+  email = lydia.stepanek@mongodb.com
 	name = Lydia Stepanek
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/bin/vim
 
 [alias]
 lol = log --graph --decorate --pretty=oneline --abbrev-commit
