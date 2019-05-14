@@ -7,6 +7,7 @@ excludesfile = /Users/lydia.stepanek/.gitignore
 [user]
   email = lydia.stepanek@mongodb.com
 	name = Lydia Stepanek
+  username = lydiastepanek
 [core]
 	editor = /usr/bin/vim
 
