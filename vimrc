@@ -347,3 +347,5 @@ function SetupJavaScriptLinter()
 endfunction
 
 autocmd FileType javascript call SetupJavaScriptLinter()
+
+let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
