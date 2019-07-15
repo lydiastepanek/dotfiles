@@ -43,6 +43,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'yaymukund/vim-rabl'
 Plugin 'tpope/vim-endwise'
+Plugin 'fatih/vim-go'
 
 " frameworks
 Plugin 'tpope/vim-rails'

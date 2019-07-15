@@ -14,6 +14,7 @@ for script.
 To get shell to recognize new vim settings:
 * `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 * From vimrc, run :PluginInstall
+* From vimrc, run :GoInstallBinaries
 
 To get shell to recognize new tmux settings:
 * Install iTerm
