@@ -25,6 +25,7 @@ Plugin 'vim-scripts/YankRing.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/matchit'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 " navigation
