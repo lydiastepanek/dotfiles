@@ -56,6 +56,11 @@ Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'tpope/vim-fugitive'
 
+" deoplete
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+
 " Plugins you want just for yourself go here
 if filereadable(expand("~/.custom.vim-plugins"))
   source ~/.custom.vim-plugins
@@ -169,6 +174,11 @@ au BufRead,BufNewFile ~/dev/writability/* let g:syntastic_python_checker_args='-
 " http://oli.me.uk/2014/11/21/essential-vim-bundles-for-javascript-and-clojure/
 au FileType javascript setlocal shiftwidth=2 softtabstop=2
 let g:jsx_ext_required = 0 " jsx syntax / indent on js files too.
+
+"""""""""""""""""""""""""
+" Deoplete
+"""""""""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
 
 """""""""""""""""""""""""
 " Keybindings
