@@ -280,6 +280,12 @@ let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 set laststatus=2
 
 """""""""""""""""""""""""
+" Deoplete
+"""""""""""""""""""""""""
+
+inoremap <silent> <c-l> <c-x><c-o>
+
+"""""""""""""""""""""""""
 " CtrlP
 """""""""""""""""""""""""
 
