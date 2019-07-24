@@ -336,10 +336,11 @@ runtime macros/matchit.vim
 nnoremap <leader>er :call ToggleErrorPanel()<CR>
 
 """""""""""""""""""""""""
-" Syntastic/ESLint
+" Syntastic/ESLint/Ale
 """""""""""""""""""""""""
 
 let g:syntastic_javascript_checkers = []
+let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
 
 function CheckJavaScriptLinter(filepath, linter)
   if exists('b:syntastic_checkers')
@@ -361,4 +362,4 @@ endfunction
 
 autocmd FileType javascript call SetupJavaScriptLinter()
 
-let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
+let g:ale_python_flake8_options = '--ignore=E501,E402'
