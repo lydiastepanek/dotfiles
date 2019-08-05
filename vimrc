@@ -369,3 +369,6 @@ endfunction
 autocmd FileType javascript call SetupJavaScriptLinter()
 
 let g:ale_python_flake8_options = '--ignore=E501,E402'
+let g:ale_fixers = ['autopep8', 'yapf']
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'javascript': ['eslint']}
+let g:ale_fix_on_save = 1
