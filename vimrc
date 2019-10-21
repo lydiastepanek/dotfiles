@@ -17,7 +17,6 @@ Plugin 'VundleVim/Vundle.vim'
 """""""""""""""""""""""""
 
 " editing
-Plugin 'godlygeek/tabular'
 Plugin 'kana/vim-textobj-user'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
@@ -29,7 +28,6 @@ Plugin 'w0rp/ale'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 " navigation
-Plugin 'ervandew/supertab'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -81,7 +79,6 @@ syntax on
 set nocursorline
 set number
 set list!                       " Display unprintable characters
-set listchars=tab:▸\ ,trail:•,extends:»,precedes:«
 if $TERM =~ '256color'
   set t_Co=256
 elseif $TERM =~ '^xterm$'
@@ -107,12 +104,7 @@ set directory=/tmp "sets the swap (.swp) file directory
 noremap k gk
 noremap j gj
 
-" Formatting, indentation and tabbing
-set autoindent smartindent
-set smarttab                    " Make <tab> and <backspace> smarter
-set expandtab
-set tabstop=2
-set shiftwidth=2
+" Formatting, indentation
 set textwidth=80
 set formatoptions-=t formatoptions+=croql
 
@@ -295,15 +287,6 @@ let g:ctrlp_working_path_mode = 'ra'
 map <Leader>, :CtrlP<CR>
 
 """""""""""""""""""""""""
-
-noremap \= :Tabularize /=<CR>
-noremap \: :Tabularize /^[^:]*:\zs/l0l1<CR>
-noremap \> :Tabularize /=><CR>
-noremap \, :Tabularize /, \zs/l0l1<CR>
-noremap \{ :Tabularize /{<CR>
-noremap \\| :Tabularize /\|<CR>
-noremap \& :Tabularize /\(&\\|\\\\\)<CR>
-
 nmap <leader>gi :Gist
 let g:gist_post_private = 1
 let g:gist_open_browser_after_post = 1
