@@ -79,6 +79,7 @@ syntax on
 set nocursorline
 set number
 set list!                       " Display unprintable characters
+set listchars=tab:▸\ ,trail:•,extends:»,precedes:«
 if $TERM =~ '256color'
   set t_Co=256
 elseif $TERM =~ '^xterm$'
