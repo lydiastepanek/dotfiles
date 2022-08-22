@@ -20,8 +20,8 @@ To get shell to recognize new tmux settings:
 * Install iTerm
 * Install tmux: `brew install tmux`
 * Then set iTerm preferences:
-  * iTerm Preferences > Profiles > Default > Keys > Left option key acts as + Esc 
+  * iTerm Preferences > Profiles > Default > Keys > Left option key acts as + Esc
   * iTerm Preferences > Profiles > Default > Keys > Right option key acts as + Esc
 
 To install prezto:
-* Follow directions in https://github.com/sorin-ionescu/prezto#installation. (Skip Step 3 as this line is already added to zshrc.)
+* Follow directions in https://github.com/sorin-ionescu/prezto#installation.

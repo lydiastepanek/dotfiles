@@ -10,7 +10,10 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
 
 fpath[1,0]=$HOME/.zsh/completion
 
