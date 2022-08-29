@@ -1,6 +1,6 @@
 export GOPATH="$HOME/go"
 
-export PATH="/usr/local/opt/openssl@1.1/bin:/usr/local/bin:$HOME/.pyenv/bin:$HOME/.local/bin:$HOME/mongodb-osx-x86_64-enterprise-4.0.9/bin:$HOME/bin:$GOPATH:$PATH"
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:/usr/local/bin:$HOME/.pyenv/bin:$HOME/.local/bin:$HOME/mongodb-osx-x86_64-enterprise-4.0.9/bin:$HOME/bin:$GOPATH:$PATH"
 [ -n "$PS1" ] && source ~/.mongoenv;
 
 export NVM_DIR="$HOME/.nvm"
