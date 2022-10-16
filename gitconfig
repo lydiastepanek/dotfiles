@@ -5,7 +5,7 @@ protocol = https
 excludesfile = /Users/lydia.stepanek/.gitignore
 
 [user]
-email = lydia.stepanek@mongodb.com
+email = lydia.stepanek@gmail.com
 name = Lydia Stepanek
 username = lydiastepanek
 
@@ -49,6 +49,3 @@ remote = green
 added = yellow
 changed = green
 untracked = cyan
-
-[commit]
-gpgsign = true
