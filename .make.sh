@@ -20,7 +20,7 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
 for file in $files; do
   echo "Moving any existing dotfiles from ~ to $olddir"
   if [ -f ~/.$file ]; then
@@ -29,3 +29,6 @@ for file in $files; do
   echo "Creating symlink to $file in home directory."
   ln -sf $dir/$file ~/.$file
 done
+
+echo "Creating symlink to vimrc for intellij plugins which use .ideavimrc."
+ln -sf $dir/vimrc ~/.ideavimrc
