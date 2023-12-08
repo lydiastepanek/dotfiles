@@ -32,8 +32,9 @@ To get shell to recognize new tmux settings:
 
 ## prezto setup
 
-To install prezto:
-* Follow directions in https://github.com/sorin-ionescu/prezto#installation.
+To install prezto, see https://github.com/sorin-ionescu/prezto#installation
+
+To UPDATE prezto, see https://github.com/sorin-ionescu/prezto?tab=readme-ov-file#updating
 
 Set Zsh as your default shell:
 ```console
