@@ -1,4 +1,9 @@
 # Setup
+
+## Prerequisites
+[`python`](https://stackoverflow.com/a/71513250/6441791)
+
+## Run installation script
 Make sure to clone this directory from ~/src/ as it is intended to run from this
 folder.
 
@@ -7,15 +12,16 @@ chmod +x .make.sh
 ./.make.sh
 ```
 
-Used
-http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
-for script.
+
+## vim setup
 
 To get shell to recognize new vim settings:
 * `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 * From vimrc, run :PluginInstall
 * Install go: `brew install go`
 * From vimrc, run :GoInstallBinaries
+
+## tmux setup
 
 To get shell to recognize new tmux settings:
 * Install iTerm
@@ -24,5 +30,18 @@ To get shell to recognize new tmux settings:
   * iTerm Preferences > Profiles > Default > Keys > Left option key acts as + Esc
   * iTerm Preferences > Profiles > Default > Keys > Right option key acts as + Esc
 
+## prezto setup
+
 To install prezto:
 * Follow directions in https://github.com/sorin-ionescu/prezto#installation.
+
+Set Zsh as your default shell:
+```console
+chsh -s /bin/zsh
+```
+
+## Acknowledgements
+
+Used this example
+http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
+for script.
