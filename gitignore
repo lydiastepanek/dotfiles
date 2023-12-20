@@ -1,6 +1,6 @@
 .venv*
 clang+llvm-3.8.0-x86_64-apple-darwin
-.idea
+.idea/*
 src/mongo/idl/unittest*
 node_modules/.cache
 override_responses.db
