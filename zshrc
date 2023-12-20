@@ -30,3 +30,4 @@ if [ -f '/Users/lydiastepanek/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 
 # rbenv
 eval "$(~/.rbenv/bin/rbenv init - zsh)"
+eval "$(rbenv init - zsh)"
