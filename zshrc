@@ -3,6 +3,9 @@ export GOPATH="$HOME/go"
 # pyenv
 export PATH="/Users/lydiastepanek/.pyenv/shims:$PATH"
 
+# pipenv
+export PATH="/Users/lydiastepanek/.local/bin:$PATH"
+
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 fpath[1,0]=$HOME/.zsh/completion
