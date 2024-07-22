@@ -1,5 +1,8 @@
 export GOPATH="$HOME/go"
 
+# pyenv
+export PATH="/Users/lydiastepanek/.pyenv/shims:$PATH"
+
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 fpath[1,0]=$HOME/.zsh/completion
@@ -31,3 +34,7 @@ if [ -f '/Users/lydiastepanek/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 # rbenv
 eval "$(~/.rbenv/bin/rbenv init - zsh)"
 eval "$(rbenv init - zsh)"
+
+# C15
+
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
