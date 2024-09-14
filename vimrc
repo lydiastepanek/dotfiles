@@ -56,7 +56,6 @@ Plugin 'mattn/webapi-vim'
 Plugin 'tpope/vim-fugitive'
 
 " deoplete
-Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 
