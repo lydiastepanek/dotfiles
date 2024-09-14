@@ -33,11 +33,3 @@ if [ -f '/Users/lydiastepanek/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/l
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/lydiastepanek/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lydiastepanek/google-cloud-sdk/completion.zsh.inc'; fi
-
-# rbenv
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
-eval "$(rbenv init - zsh)"
-
-# C15
-
-alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
