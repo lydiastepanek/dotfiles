@@ -1,8 +1,5 @@
 # Setup
 
-## Prerequisites
-[`python`](https://stackoverflow.com/a/71513250/6441791)
-
 ## Run installation script
 Make sure to clone this directory from ~/src/ as it is intended to run from this
 folder.
