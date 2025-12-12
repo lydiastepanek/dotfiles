@@ -34,8 +34,3 @@ if [ -f '/Users/lydiastepanek/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/l
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/lydiastepanek/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lydiastepanek/google-cloud-sdk/completion.zsh.inc'; fi
-
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
