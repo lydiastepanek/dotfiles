@@ -7,3 +7,4 @@ override_responses.db
 .coverage
 htmlcov/
 cmake-build-debug/
+.claude
