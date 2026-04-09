@@ -10,6 +10,11 @@ dir=~/src/dotfiles                    # dotfiles directory
 olddir=~/src/dotfiles_old             # old dotfiles backup directory
 files="zshrc gitconfig gitignore tmux.conf vimrc"    # list of files/folders to symlink in homedir
 
+# set git's core.excludesFile so that global .gitignore is set
+echo "Setting gitignore"
+git config --global core.excludesFile ~/.gitignore
+echo "...done"
+
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
