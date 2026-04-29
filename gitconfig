@@ -2,7 +2,7 @@
 protocol = https
 
 [core]
-excludesfile = /Users/lydia.stepanek/.gitignore
+	excludesFile = /Users/lydiastepanek/.gitignore
 
 [user]
 email = lydia.stepanek@gmail.com
